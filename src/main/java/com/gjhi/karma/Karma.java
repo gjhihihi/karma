@@ -4,7 +4,6 @@ import com.gjhi.karma.data.KRDamageTypeProvider;
 import com.gjhi.karma.data.KRDamageTypesTagProvider;
 import com.gjhi.karma.data.KRItemModelProvider;
 import com.gjhi.karma.register.KRCapabilities;
-import com.gjhi.karma.register.KRDamageTypes;
 import com.gjhi.karma.register.KRTags;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.HolderLookup;
@@ -16,7 +15,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -32,7 +30,6 @@ import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 
 import java.util.Locale;
-import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 @SuppressWarnings("removal")
