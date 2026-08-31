@@ -1,0 +1,11 @@
+{
+  "death.attack.karma.karma1": "%1$s感受到自己的罪孽爬上了脊背",
+  "death.attack.karma.karma1.player": "%1$s感受到自己的罪孽爬上了脊背",
+  "death.attack.karma.karma2": "%1$s感受到自己的罪孽压迫着脖颈",
+  "death.attack.karma.karma2.player": "%1$s感受到自己的罪孽压迫着脖颈",
+  "death.attack.karma.karma3": "罪业在%1$s的血脉里奔涌",
+  "death.attack.karma.karma3.player": "罪业在%1$s的血脉里奔涌",
+  "death.attack.karma.karma4": "%1$s注定因罪业而死",
+  "death.attack.karma.karma4.player": "%1$s注定因罪业而死",
+  "item.karma.sans_bone": "Sans的骨头"
+}

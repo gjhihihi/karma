@@ -1,0 +1,11 @@
+{
+  "death.attack.karma.karma1": "%1$s felt its sins crawling on its back",
+  "death.attack.karma.karma1.player": "%1$s felt its sins crawling on its back",
+  "death.attack.karma.karma2": "%1$s felt its sins weighing on its neck",
+  "death.attack.karma.karma2.player": "%1$s felt its sins weighing on its neck",
+  "death.attack.karma.karma3": "KARMA coursing through veins of %1$s",
+  "death.attack.karma.karma3.player": "KARMA coursing through veins of %1$s",
+  "death.attack.karma.karma4": "%1$s doomed to death of KARMA",
+  "death.attack.karma.karma4.player": "%1$s doomed to death of KARMA",
+  "item.karma.sans_bone": "Bone of Sans"
+}

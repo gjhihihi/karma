@@ -1,0 +1,11 @@
+// 1.20.1	2026-08-31T14:46:11.8221405	Tags for minecraft:damage_type mod id karma
+66fde7ee3e9d72eb8c32c5bdd97083f886a120e9 data/karma/tags/damage_type/karma.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/karma/tags/damage_type/karma_cause.json
+01b081f79b70735e1152c2b1066003ca2c139902 data/minecraft/tags/damage_type/always_hurts_ender_dragons.json
+01b081f79b70735e1152c2b1066003ca2c139902 data/minecraft/tags/damage_type/avoids_guardian_thorns.json
+01b081f79b70735e1152c2b1066003ca2c139902 data/minecraft/tags/damage_type/bypasses_armor.json
+01b081f79b70735e1152c2b1066003ca2c139902 data/minecraft/tags/damage_type/bypasses_cooldown.json
+01b081f79b70735e1152c2b1066003ca2c139902 data/minecraft/tags/damage_type/bypasses_effects.json
+01b081f79b70735e1152c2b1066003ca2c139902 data/minecraft/tags/damage_type/bypasses_enchantments.json
+01b081f79b70735e1152c2b1066003ca2c139902 data/minecraft/tags/damage_type/no_anger.json
+01b081f79b70735e1152c2b1066003ca2c139902 data/minecraft/tags/damage_type/no_impact.json
