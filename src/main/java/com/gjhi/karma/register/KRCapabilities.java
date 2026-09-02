@@ -4,6 +4,7 @@ import com.gjhi.karma.Karma;
 import com.gjhi.karma.library.caps.IKarmaData;
 import com.gjhi.karma.library.caps.KarmaData;
 import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.common.capabilities.*;
@@ -37,10 +38,20 @@ public class KRCapabilities {
         if (event.getObject() instanceof LivingEntity){
             KarmaData data = new KarmaData();
             LazyOptional<IKarmaData> optional = LazyOptional.of(() -> data);
-            ICapabilityProvider provider = new ICapabilityProvider() {
+            ICapabilityProvider provider = new ICapabilitySerializable<CompoundTag>() {
                 @Override
                 public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
                     return cap == KARMA_DATA? optional.cast(): LazyOptional.empty();
+                }
+
+                @Override
+                public CompoundTag serializeNBT() {
+                    return data.serializeNBT();
+                }
+
+                @Override
+                public void deserializeNBT(CompoundTag nbt) {
+                    data.deserializeNBT(nbt);
                 }
             };
             event.addCapability(Karma.getResource("karma_data"), provider);
