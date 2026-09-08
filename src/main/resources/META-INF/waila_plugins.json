@@ -1,0 +1,9 @@
+{
+  "karma:plugin": {
+    "entrypoints": {
+      "common": "com.gjhi.karma.plugins.jade.JadeKarmaPlugin",
+      "client": "com.gjhi.karma.plugins.jade.JadeKarmaPlugin"
+    },
+    "side": "*"
+  }
+}

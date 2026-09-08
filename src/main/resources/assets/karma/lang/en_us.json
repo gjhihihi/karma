@@ -7,5 +7,6 @@
   "death.attack.karma.karma3.player": "KARMA coursing through veins of %1$s",
   "death.attack.karma.karma4": "%1$s doomed to death of KARMA",
   "death.attack.karma.karma4.player": "%1$s doomed to death of KARMA",
-  "item.karma.sans_bone": "Bone of Sans"
+  "item.karma.sans_bone": "Bone of Sans",
+  "tooltip.karma.jade.karma": "KARMA：%1$d/%2$d"
 }
