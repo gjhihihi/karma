@@ -20,17 +20,15 @@ public class KarmaEvents {
     @SubscribeEvent(priority = EventPriority.HIGH)
     public static void onHurt(LivingHurtEvent event){
         if (event.getSource().is(KRTags.DamageTypes.KARMA_CAUSE)){
-            KarmaHelper.getKarmaData(event.getEntity()).ifPresent(data -> data.addKarma((int) event.getAmount()));
+            LivingEntity living = event.getEntity();
+            KarmaHelper.addKarma(living, (int) event.getAmount());
         }
     }
     @SubscribeEvent
     public static void rightClick(PlayerInteractEvent.EntityInteract event){
         if(!event.isCanceled() && !event.getCancellationResult().consumesAction() && event.getTarget() instanceof LivingEntity target) {
             if (event.getItemStack().is(Karma.SANS_BONE.get())){
-                KarmaHelper.getKarmaData(target).ifPresent(data -> {
-                    data.setKarma(KRConfig.getMaxKarma());
-                    event.setCancellationResult(InteractionResult.SUCCESS);
-                });
+                KarmaHelper.setKarma(target, KRConfig.getMaxKarma());
             }
         }
     }

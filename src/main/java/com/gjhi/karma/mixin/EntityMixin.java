@@ -6,6 +6,7 @@ import com.gjhi.karma.register.KRDamageTypes;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -13,12 +14,12 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Entity.class)
-public abstract class LivingEntityMixin {
+public abstract class EntityMixin {
     @Inject(method = "tick", at = @At("HEAD"))
     private void tick(CallbackInfo ci){
         if ((Object) this instanceof LivingEntity living) {
-            KarmaHelper.getKarmaData(living).ifPresent(data -> {
-                int karma = data.getKarma();
+            if (KarmaHelper.hasKarmaData(living)) {
+                int karma = KarmaHelper.getKarma(living);
                 if (karma <= 0)return;
                 int maxKarma = KRConfig.getMaxKarma();
                 float ratio = (float)karma / maxKarma;
@@ -40,10 +41,10 @@ public abstract class LivingEntityMixin {
                 }
                 if (living.tickCount % interval == 0){
                     if (living.hurt(source, 1)){
-                        data.removeKarma(1);
+                        KarmaHelper.removeKarma(living, 1);
                     }
                 }
-            });
+            }
         }
     }
 }

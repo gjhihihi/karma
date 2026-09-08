@@ -4,6 +4,7 @@ import com.gjhi.karma.data.KRDamageTypeProvider;
 import com.gjhi.karma.data.KRDamageTypesTagProvider;
 import com.gjhi.karma.data.KRItemModelProvider;
 import com.gjhi.karma.register.KRCapabilities;
+import com.gjhi.karma.register.KRNetworkHandler;
 import com.gjhi.karma.register.KRTags;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.HolderLookup;
@@ -55,6 +56,7 @@ public class Karma {
         KRTags.init();
         bus.addListener(this::gatherData);
         bus.addListener(KRCapabilities::registerCapabilities);
+        KRNetworkHandler.register();
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

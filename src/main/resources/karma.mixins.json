@@ -5,7 +5,7 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "karma.refmap.json",
   "mixins": [
-    "LivingEntityMixin"
+    "EntityMixin"
   ],
   "client": [
   ],
