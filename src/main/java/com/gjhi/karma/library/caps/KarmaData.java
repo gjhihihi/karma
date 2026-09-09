@@ -14,7 +14,7 @@ public class KarmaData implements IKarmaData, INBTSerializable<CompoundTag> {
 
     @Override
     public void setKarma(int value) {
-        karma = Math.max(0, Math.min(value, KRConfig.getMaxKarma()));
+        karma = Math.max(0, value);
     }
 
     @Override
@@ -26,6 +26,6 @@ public class KarmaData implements IKarmaData, INBTSerializable<CompoundTag> {
 
     @Override
     public void deserializeNBT(CompoundTag nbt) {
-        karma = Math.max(0, Math.min(nbt.getInt("karma"), KRConfig.getMaxKarma()));
+        setKarma(nbt.getInt("karma"));
     }
 }

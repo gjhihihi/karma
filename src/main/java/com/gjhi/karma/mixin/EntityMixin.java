@@ -1,12 +1,10 @@
 package com.gjhi.karma.mixin;
 
-import com.gjhi.karma.KRConfig;
 import com.gjhi.karma.library.caps.KarmaHelper;
 import com.gjhi.karma.register.KRDamageTypes;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -21,7 +19,7 @@ public abstract class EntityMixin {
             if (KarmaHelper.hasKarmaData(living)) {
                 int karma = KarmaHelper.getKarma(living);
                 if (karma <= 0)return;
-                int maxKarma = KRConfig.getMaxKarma();
+                int maxKarma = KarmaHelper.getMaxKarma(living);
                 float ratio = (float)karma / maxKarma;
                 Level world = living.level();
                 DamageSource source;

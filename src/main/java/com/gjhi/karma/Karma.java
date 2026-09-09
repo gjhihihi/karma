@@ -3,6 +3,7 @@ package com.gjhi.karma;
 import com.gjhi.karma.data.KRDamageTypeProvider;
 import com.gjhi.karma.data.KRDamageTypesTagProvider;
 import com.gjhi.karma.data.KRItemModelProvider;
+import com.gjhi.karma.register.KRAttributes;
 import com.gjhi.karma.register.KRCapabilities;
 import com.gjhi.karma.register.KRNetworkHandler;
 import com.gjhi.karma.register.KRTags;
@@ -50,12 +51,15 @@ public class Karma {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         //bus.addListener(this::commonSetup);
         ITEMS.register(bus);
+        KRAttributes.ATTRIBUTES.register(bus);
         MinecraftForge.EVENT_BUS.register(this);
         bus.addListener(this::addCreative);
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, KRConfig.SPEC);
+        bus.addListener(KRConfig::onLoad);
         KRTags.init();
         bus.addListener(this::gatherData);
         bus.addListener(KRCapabilities::registerCapabilities);
+        bus.addListener(KRAttributes::onEntityAttributeModification);
         KRNetworkHandler.register();
     }
 

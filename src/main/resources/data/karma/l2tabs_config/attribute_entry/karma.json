@@ -1,0 +1,10 @@
+{
+  "list": [
+    {
+      "id": "karma:generic.max_karma",
+      "intrinsic": 0.0,
+      "order": 10000,
+      "usePercent": false
+    }
+  ]
+}

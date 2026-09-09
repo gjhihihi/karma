@@ -1,6 +1,5 @@
 package com.gjhi.karma.plugins.kubejs;
 
-import com.gjhi.karma.KRConfig;
 import com.gjhi.karma.library.caps.KarmaHelper;
 import net.minecraft.world.entity.LivingEntity;
 
@@ -9,7 +8,7 @@ public class KRKubeJSFunctions {
         return KarmaHelper.getKarma(living);
     }
     public static int getMaxKarma(LivingEntity living) {
-        return KRConfig.getMaxKarma();
+        return KarmaHelper.getMaxKarma(living);
     }
     public static void setKarma(LivingEntity living, int value) {
         KarmaHelper.setKarma(living, value);

@@ -2,9 +2,11 @@ package com.gjhi.karma.plugins.jade;
 
 import com.gjhi.karma.KRConfig;
 import com.gjhi.karma.Karma;
+import com.gjhi.karma.library.caps.KarmaHelper;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.LivingEntity;
 import snownee.jade.api.EntityAccessor;
 import snownee.jade.api.IEntityComponentProvider;
 import snownee.jade.api.ITooltip;
@@ -16,9 +18,9 @@ public enum KRComponentJadeProvider implements IEntityComponentProvider {
     @Override
     public void appendTooltip(ITooltip tooltip, EntityAccessor accessor, IPluginConfig config) {
         CompoundTag nbt = accessor.getServerData();
-        if (nbt.contains("karma_jade")) {
+        if (nbt.contains("karma_jade") && accessor.getEntity() instanceof LivingEntity living) {
             tooltip.add(tooltip.getElementHelper().text(
-                    Component.translatable("tooltip.karma.jade.karma", nbt.getInt("karma_jade"), KRConfig.getMaxKarma())
+                    Component.translatable("tooltip.karma.jade.karma", nbt.getInt("karma_jade"), KarmaHelper.getMaxKarma(living))
             ));
         }
     }
