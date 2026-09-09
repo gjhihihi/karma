@@ -25,10 +25,22 @@ public class KarmaEvents {
         }
     }
     @SubscribeEvent
-    public static void rightClick(PlayerInteractEvent.EntityInteract event){
-        if(!event.isCanceled() && !event.getCancellationResult().consumesAction() && event.getTarget() instanceof LivingEntity target) {
+    public static void rightClickEntity(PlayerInteractEvent.EntityInteract event){
+        if (!event.isCanceled() && !event.getCancellationResult().consumesAction() && event.getTarget() instanceof LivingEntity target) {
             if (event.getItemStack().is(Karma.SANS_BONE.get())){
                 KarmaHelper.setKarma(target, KRConfig.getMaxKarma());
+                event.setCancellationResult(InteractionResult.SUCCESS);
+                event.setCanceled(true);
+            }
+        }
+    }
+    @SubscribeEvent
+    public static void rightClickEmpty(PlayerInteractEvent.RightClickItem event){
+        if (!event.isCanceled() && !event.getCancellationResult().consumesAction()) {
+            if (event.getItemStack().is(Karma.SANS_BONE.get())){
+                KarmaHelper.setKarma(event.getEntity(), KRConfig.getMaxKarma());
+                event.setCancellationResult(InteractionResult.SUCCESS);
+                event.setCanceled(true);
             }
         }
     }
