@@ -1,5 +1,6 @@
 package com.gjhi.karma.mixin;
 
+import com.gjhi.karma.KRConfig;
 import com.gjhi.karma.library.caps.KarmaHelper;
 import com.gjhi.karma.register.KRDamageTypes;
 import net.minecraft.world.damagesource.DamageSource;
@@ -26,16 +27,16 @@ public abstract class EntityMixin {
                 int interval;
                 if (ratio <= 0.25f){
                     source = KRDamageTypes.source(world.registryAccess(), KRDamageTypes.KARMA1);
-                    interval = 20;
+                    interval = KRConfig.getKarmaInterval(1);
                 } else if (ratio <= 0.5f){
                     source = KRDamageTypes.source(world.registryAccess(), KRDamageTypes.KARMA2);
-                    interval = 10;
+                    interval = KRConfig.getKarmaInterval(2);
                 } else if (ratio <= 0.75f){
                     source = KRDamageTypes.source(world.registryAccess(), KRDamageTypes.KARMA3);
-                    interval = 3;
+                    interval = KRConfig.getKarmaInterval(3);
                 } else {
                     source = KRDamageTypes.source(world.registryAccess(), KRDamageTypes.KARMA4);
-                    interval = 1;
+                    interval = KRConfig.getKarmaInterval(4);
                 }
                 if (living.tickCount % interval == 0){
                     if (living.hurt(source, 1)){
