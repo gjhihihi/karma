@@ -53,7 +53,7 @@ public class KarmaEvents {
     @SubscribeEvent
     public static void onEntityJoin(EntityJoinLevelEvent event){
         if (!event.isCanceled()) {
-            if (event.getEntity() instanceof LivingEntity living){
+            if (event.getEntity() instanceof LivingEntity living && !KarmaHelper.isUsingSpecialMaxKarma(living)){
                 AttributeInstance instance = living.getAttribute(KRAttributes.MAX_KARMA.get());
                 if (instance != null) {
                     instance.setBaseValue(KRConfig.getConfigMaxKarma());

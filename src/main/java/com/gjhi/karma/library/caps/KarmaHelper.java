@@ -10,6 +10,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.network.PacketDistributor;
 
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class KarmaHelper {
@@ -56,5 +57,13 @@ public class KarmaHelper {
     }
     public static void removeKarma(LivingEntity living, int value) {
         setKarma(living, getKarma(living) - value);
+    }
+    public static void setUsingSpecialMaxKarma(LivingEntity living) {
+        KarmaHelper.getKarmaData(living).ifPresent(IKarmaData::setMaxKarmaLoaded);
+    }
+    public static boolean isUsingSpecialMaxKarma(LivingEntity living) {
+        AtomicBoolean loaded = new AtomicBoolean(false);
+        KarmaHelper.getKarmaData(living).ifPresent(data -> loaded.set(data.isMaxKarmaLoaded()));
+        return loaded.get();
     }
 }

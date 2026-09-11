@@ -11,4 +11,6 @@ public interface IKarmaData {
     default void removeKarma(int value) {
         setKarma(getKarma() - value);
     }
+    boolean isMaxKarmaLoaded();
+    void setMaxKarmaLoaded();
 }
