@@ -225,6 +225,14 @@ tasks.named('jar', Jar).configure {
     finalizedBy 'reobfJar'
 }
 
+task deobfJar(type: Jar, dependsOn: classes) {
+    archiveClassifier.set('deobf')
+    from sourceSets.main.output
+}
+artifacts {
+    archives deobfJar
+}
+
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }
