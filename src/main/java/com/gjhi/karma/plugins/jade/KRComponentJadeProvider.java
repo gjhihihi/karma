@@ -19,9 +19,12 @@ public enum KRComponentJadeProvider implements IEntityComponentProvider {
     public void appendTooltip(ITooltip tooltip, EntityAccessor accessor, IPluginConfig config) {
         CompoundTag nbt = accessor.getServerData();
         if (nbt.contains("karma_jade") && accessor.getEntity() instanceof LivingEntity living) {
-            tooltip.add(tooltip.getElementHelper().text(
-                    Component.translatable("tooltip.karma.jade.karma", nbt.getInt("karma_jade"), KarmaHelper.getMaxKarma(living))
-            ));
+            int karma = nbt.getInt("karma_jade");
+            if (karma > 0) {
+                tooltip.add(tooltip.getElementHelper().text(
+                        Component.translatable("tooltip.karma.jade.karma", karma, KarmaHelper.getMaxKarma(living))
+                ));
+            }
         }
     }
 
