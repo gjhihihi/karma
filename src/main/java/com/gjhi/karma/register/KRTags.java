@@ -17,6 +17,7 @@ public class KRTags {
         /**
          * Damage Types with the tag can add karma to entities.
          */
+        @Deprecated(forRemoval = true)
         public static final TagKey<DamageType> KARMA_CAUSE = local("karma_cause");
         /**
          * Damage Types with the tag are karma damage.

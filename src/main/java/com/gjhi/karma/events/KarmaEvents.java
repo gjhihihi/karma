@@ -22,6 +22,7 @@ import net.minecraftforge.fml.common.Mod;
         bus = Mod.EventBusSubscriber.Bus.FORGE
 )
 public class KarmaEvents {
+    @SuppressWarnings("removal")
     @SubscribeEvent(priority = EventPriority.HIGH)
     public static void onHurt(LivingHurtEvent event){
         DamageSource source = event.getSource();

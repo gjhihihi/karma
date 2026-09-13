@@ -21,7 +21,6 @@ public class KRDamageTypesTagProvider extends TagsProvider<DamageType> {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        this.tag(KRTags.DamageTypes.KARMA_CAUSE);
         this.tag(KRTags.DamageTypes.KARMA)
                 .add(KRDamageTypes.KARMA1)
                 .add(KRDamageTypes.KARMA2)
