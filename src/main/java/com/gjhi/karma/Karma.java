@@ -42,7 +42,7 @@ public class Karma {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
     public static final RegistryObject<Item> SANS_BONE = ITEMS.register("sans_bone", () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)){
         @Override
-        public boolean isFoil(ItemStack p_41453_) {
+        public boolean isFoil(ItemStack stack) {
             return true;
         }
     });

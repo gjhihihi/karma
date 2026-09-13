@@ -16,10 +16,17 @@ public class KRAttributes {
             () -> new RangedAttribute("attribute.karma.generic.max_karma", 40, 0, 1024).setSyncable(true)
     );
 
+    public static final RegistryObject<Attribute> KARMA_ATTACK = ATTRIBUTES.register("generic.max_karma",
+            () -> new RangedAttribute("attribute.karma.generic.karma_attack", 0, 0, 1024).setSyncable(true)
+    );
+
     public static void onEntityAttributeModification(EntityAttributeModificationEvent event) {
         event.getTypes().forEach(type -> {
             if (!event.has(type, MAX_KARMA.get())) {
                 event.add(type, MAX_KARMA.get());
+            }
+            if (!event.has(type, KARMA_ATTACK.get())) {
+                event.add(type, KARMA_ATTACK.get());
             }
         });
     }

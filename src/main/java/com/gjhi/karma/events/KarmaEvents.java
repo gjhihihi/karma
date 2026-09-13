@@ -6,6 +6,7 @@ import com.gjhi.karma.library.caps.KarmaHelper;
 import com.gjhi.karma.register.KRAttributes;
 import com.gjhi.karma.register.KRTags;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.player.Player;
@@ -23,9 +24,16 @@ import net.minecraftforge.fml.common.Mod;
 public class KarmaEvents {
     @SubscribeEvent(priority = EventPriority.HIGH)
     public static void onHurt(LivingHurtEvent event){
-        if (event.getSource().is(KRTags.DamageTypes.KARMA_CAUSE)){
-            LivingEntity living = event.getEntity();
+        DamageSource source = event.getSource();
+        LivingEntity living = event.getEntity();
+        if (source.is(KRTags.DamageTypes.KARMA_CAUSE)){
             KarmaHelper.addKarma(living, (int) event.getAmount());
+        }
+        if (source.getDirectEntity() instanceof LivingEntity attacker){
+            double value = attacker.getAttributeValue(KRAttributes.KARMA_ATTACK.get());
+            if (value >= 1){
+                KarmaHelper.addKarma(living, (int) value);
+            }
         }
     }
     @SubscribeEvent

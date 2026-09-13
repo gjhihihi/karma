@@ -1,4 +1,5 @@
 {
+  "attribute.karma.generic.karma_attack": "Karma Attack",
   "attribute.karma.generic.max_karma": "Max Karma",
   "death.attack.karma.karma1": "%1$s felt its sins crawling on its back",
   "death.attack.karma.karma1.player": "%1$s felt its sins crawling on its back",
